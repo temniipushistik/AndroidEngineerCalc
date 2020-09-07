@@ -20,15 +20,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.add(R.id.fragment, InputFragment.newInstance());
         transaction.commit();
 
-        findViewById(R.id.buttonCalc).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-                transaction.add(R.id.fragment, OutputFragment.newInstance());
-                transaction.commit();
-            }
-        });
 
       /*
         calculate =  findViewById(R.id.buttonCalc);
