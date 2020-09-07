@@ -47,13 +47,14 @@ public class OutputFragment extends Fragment {
         naClConsume = bundle.getInt("naClConsume");
 
 
+
         // Inflate the layout for this fragment
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        //just fake without logic
+        //just fake info without logic
         //have to create logic
         no3Out = view.findViewById(R.id.gap_nitrate_text);
         so4Out = view.findViewById(R.id.pa202_text);
@@ -61,10 +62,11 @@ public class OutputFragment extends Fragment {
         naClConsumeOut = view.findViewById(R.id.breakstone);
 
 
-        no3Out.setText(no3);
-        so4Out.setText(so4);
-        hardnessOut.setText(hardness);
-        naClConsumeOut.setText(naClConsume);
+        no3Out.setText(String.valueOf(no3));
+        so4Out.setText(String.valueOf(so4));
+        hardnessOut.setText(String.valueOf(hardness));
+        naClConsumeOut.setText(String.valueOf(naClConsume));
+
 
         super.onViewCreated(view, savedInstanceState);
     }

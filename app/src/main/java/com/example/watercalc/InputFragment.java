@@ -56,10 +56,7 @@ public class InputFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        //convert to int
-
-
-        // Inflate the layout for this fragment
+              // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_input, container, false);
     }
 
@@ -68,6 +65,7 @@ public class InputFragment extends Fragment {
         no3 = view.findViewById(R.id.No3Input);
         so4 = view.findViewById(R.id.So4Input);
         hardness = view.findViewById(R.id.Hardness_input);
+        final RadioGroup naClConsumeRadioGroup=view.findViewById(R.id.radioGroupNaCl);
         naClConsumeRadio125 = view.findViewById(R.id.radioButton125);
         naClConsumeRadio250=view.findViewById(R.id.radioButton250);
         //connect button from class to button in xml
@@ -86,18 +84,20 @@ public class InputFragment extends Fragment {
                     bundle.putInt("NO3", Integer.valueOf(no3.getText().toString()));
                     bundle.putInt("SO4", Integer.valueOf(so4.getText().toString()));
                     bundle.putInt("Hardness", Integer.valueOf(hardness.getText().toString()));
-                    //create logic about radiobutton
-                    int checkedRadioButtonId = naClConsumeRadioGroup.getCheckedRadioButtonId();
+                    //create logic with radiobutton
+                   int checkedRadioButtonId = naClConsumeRadioGroup.getCheckedRadioButtonId();
                     if (checkedRadioButtonId == R.id.radioButton125) {
                         bundle.putInt("naClConsume", 125);
                     } else {
                         bundle.putInt("naClConsume", 250);
                     }
+
+
                     fragment.setArguments(bundle);
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                     //wtf
-                    transaction.replace(R.id.fragment, fragment);
-                    //why fragment
+                    transaction.add(R.id.fragment, fragment);
+
                     transaction.addToBackStack(null);
                     transaction.commit();
                 } else{
