@@ -8,233 +8,34 @@
 
 
     <TextView
+        android:id="@+id/mediaCalculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="20dp"
-        android:text="Media calculate"
+        android:text="@string/media_calc"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:padding="20dp"
-        android:text="Input information"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:id="@+id/fragment"
+        class="com.example.watercalc.InputFragment"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:gravity="center_horizontal"
+        android:gravity="bottom|center"
         android:orientation="horizontal">
 
 
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Nitrate (NO3)"
-            android:textSize="20dp">
 
-        </TextView>
-
-        <EditText
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal">
-
-        </EditText>
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:text="mg/l"
-            android:textSize="20dp">
-
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Sulphate (SO4)"
-            android:textSize="20dp">
-
-        </TextView>
-
-        <EditText
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal">
-
-        </EditText>
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:text="mg/l"
-            android:textSize="20dp">
-
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Hardness"
-            android:textSize="20dp">
-
-        </TextView>
-
-        <EditText
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal">
-
-        </EditText>
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:text="mg eq/l"
-            android:textSize="20dp">
-
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="28dp"
-            android:text="Size of column"
-            android:textSize="20dp">
-
-        </TextView>
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="80dp"
-            android:spinnerMode="dropdown"
-
-            />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="5dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            android:text="Consume of NaCl, l"
-            android:textSize="20dp">
-
-        </TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginVertical="10dp"
-            android:orientation="vertical">
-
-            <RadioGroup
-                android:id="@+id/radiogroupNaCl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="125g/l" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="250g/l" />
-
-            </RadioGroup>
-
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Calculate"
-            android:textSize="20dp" />
 
 
     </LinearLayout>

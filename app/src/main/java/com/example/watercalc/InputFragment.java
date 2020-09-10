@@ -16,8 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
 import android.widget.Spinner;
 import android.widget.Switch;
+
 import android.widget.Toast;
 
 /**
@@ -131,6 +133,7 @@ public class InputFragment extends Fragment {
         //connect button from class to button in xml
         calculateButton = view.findViewById(R.id.buttonCalc);
         //create listening by anonymous class
+
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
