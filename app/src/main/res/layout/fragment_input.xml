@@ -143,7 +143,6 @@
             android:layout_marginHorizontal="28dp"
             android:text="Size of column"
             android:textSize="20sp">
-
         </TextView>
 
         <Spinner
