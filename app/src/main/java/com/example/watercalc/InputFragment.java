@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,30 +91,38 @@ public class InputFragment extends Fragment {
 //create a listener. It listens which position in the spinner was selected
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
 
+
             //<?> means the compiler doesn't know type of info
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = (String) adapterView.getItemAtPosition(i);
 
-
                 //put the correct item to bundle
                 switch (item) {
                     case "8x44":
                         bundle.putInt("column", 20);
+                        break;
                     case "10x44":
                         bundle.putInt("column", 25);
+                        break;
                     case "10x54":
                         bundle.putInt("column", 38);
+                        break;
                     case "12x52":
                         bundle.putInt("column", 50);
+                        break;
                     case "13x54":
                         bundle.putInt("column", 50);
+                        break;
                     case "14x65":
                         bundle.putInt("column", 85);
+                        break;
                     case "16x65":
                         bundle.putInt("column", 113);
+                        break;
                     case "18x65":
                         bundle.putInt("column", 150);
+                        break;
 
 
                 }
@@ -125,7 +134,9 @@ public class InputFragment extends Fragment {
 
             }
         };
+        //attach selectListener to columnSpinner
 
+columnSpinner.setOnItemSelectedListener(itemSelectedListener);
 
         final RadioGroup naClConsumeRadioGroup = view.findViewById(R.id.radioGroupNaCl);
         naClConsumeRadio125 = view.findViewById(R.id.radioButton125);
@@ -169,4 +180,5 @@ public class InputFragment extends Fragment {
         });
         super.onViewCreated(view, savedInstanceState);
     }
+
 }
