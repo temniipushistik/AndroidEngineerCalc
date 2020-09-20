@@ -18,7 +18,7 @@ import android.widget.TextView;
  */
 public class OutputFragment extends Fragment {
     int no3, so4, hardness, naClConsume, column;
-    private TextView no3Out, so4Out, hardnessOut,columnOut, naClConsumeOut;
+    private TextView no3Out, pa202L, tc007L, columnOut, naClConsumeOut, salt;
 
 
     public static OutputFragment newInstance() {
@@ -48,28 +48,30 @@ public class OutputFragment extends Fragment {
         column = bundle.getInt("column");
 
 
-
         // Inflate the layout for this fragment
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        //just fake info without logic
-        //have to create logic
-        no3Out = view.findViewById(R.id.gap_nitrate_text);
-        so4Out = view.findViewById(R.id.pa202_text);
+        Calculator calculator = new Calculator(no3, so4, hardness, naClConsume, column);
 
-        hardnessOut=view.findViewById(R.id.TC007_text);
+
+        no3Out = view.findViewById(R.id.gap_nitrate_text);
+        pa202L = view.findViewById(R.id.pa202_text);
+        salt = view.findViewById(R.id.salt);
+
+        tc007L = view.findViewById(R.id.TC007_text);
         naClConsumeOut = view.findViewById(R.id.breakstone);
         columnOut = view.findViewById(R.id.workflow);
 
-
-        no3Out.setText(String.valueOf(no3));
-        so4Out.setText(String.valueOf(so4));
-        hardnessOut.setText(String.valueOf(hardness));
+//add the gap of nitrates below
+        no3Out.setText(String.valueOf(calculator.gap()));
+        pa202L.setText(String.valueOf(calculator.volumePA202()));
+        tc007L.setText(String.valueOf(calculator.getVolumeTC007()));
         naClConsumeOut.setText(String.valueOf(naClConsume));
         columnOut.setText(String.valueOf(column));
+        salt.setText(String.valueOf(calculator.getSalt()));
 
 
         super.onViewCreated(view, savedInstanceState);
