@@ -55,6 +55,7 @@ public class OutputFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Calculator calculator = new Calculator(no3, so4, hardness, naClConsume, column);
+        calculator.divideNO3SO4();
 
 
         no3Out = view.findViewById(R.id.gap_nitrate_text);

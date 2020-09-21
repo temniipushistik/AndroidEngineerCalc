@@ -15,9 +15,7 @@ public class Calculator {
 
     //
 
-    private void divideNO3SO4() {
-        divideNO3SO4 = (no3 / 62) / (no3 / 62 + so4 / 48);
-    }
+
 
 
     public Calculator(int no3, int so4, int hardness, int naClConsume, int column) {
@@ -27,6 +25,10 @@ public class Calculator {
         this.naClConsume = naClConsume;
         this.column = column;
 
+    }
+
+    public void divideNO3SO4() {
+        divideNO3SO4 = (no3 / 62) / (no3 / 62 + so4 / 48);
     }
 
     public int getSalt() {
