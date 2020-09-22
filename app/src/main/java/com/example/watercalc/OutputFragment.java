@@ -17,7 +17,8 @@ import android.widget.TextView;
  * create an instance of this fragment.
  */
 public class OutputFragment extends Fragment {
-    int no3, so4, hardness, naClConsume, column;
+    int  naClConsume, column;
+    double no3, so4, hardness;
     private TextView no3Out, pa202L, tc007L, columnOut, naClConsumeOut, salt;
 
 
@@ -41,9 +42,9 @@ public class OutputFragment extends Fragment {
         //idk what's going on
         View view = inflater.inflate(R.layout.fragment_output, null);
         Bundle bundle = getArguments();
-        no3 = bundle.getInt("NO3");
-        so4 = bundle.getInt("SO4");
-        hardness = bundle.getInt("Hardness");
+        no3 = bundle.getDouble("NO3");
+        so4 = bundle.getDouble("SO4");
+        hardness = bundle.getDouble("Hardness");
         naClConsume = bundle.getInt("naClConsume");
         column = bundle.getInt("column");
 

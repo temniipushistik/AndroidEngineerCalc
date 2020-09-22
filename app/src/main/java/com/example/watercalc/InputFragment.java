@@ -154,9 +154,9 @@ columnSpinner.setOnItemSelectedListener(itemSelectedListener);
                     //    OutputFragment fragment = new OutputFragment();
 
                     //transferring info from fragment input to bundle
-                    bundle.putInt("NO3", Integer.valueOf(no3.getText().toString()));
-                    bundle.putInt("SO4", Integer.valueOf(so4.getText().toString()));
-                    bundle.putInt("Hardness", Integer.valueOf(hardness.getText().toString()));
+                    bundle.putDouble("NO3", Double.valueOf(no3.getText().toString()));
+                    bundle.putDouble("SO4", Double.valueOf(so4.getText().toString()));
+                    bundle.putDouble("Hardness", Double.valueOf(hardness.getText().toString()));
                     //create logic with radiobutton
                     int checkedRadioButtonId = naClConsumeRadioGroup.getCheckedRadioButtonId();
                     if (checkedRadioButtonId == R.id.radioButton125) {

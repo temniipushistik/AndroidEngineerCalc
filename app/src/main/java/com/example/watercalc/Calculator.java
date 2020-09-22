@@ -2,9 +2,10 @@ package com.example.watercalc;
 
 public class Calculator {
 
-    private int no3, so4, hardness, naClConsume, column, salt;
+    private int  naClConsume, column, salt;
+    private double no3, so4, hardness;
     private long volumeTC007;
-    private double divideNO3SO4;
+    private double divideNO3SO4=1;
 
 
 //todo разобрать последовательность вычисления 111
@@ -18,7 +19,7 @@ public class Calculator {
 
 
 
-    public Calculator(int no3, int so4, int hardness, int naClConsume, int column) {
+    public Calculator(double no3, double so4, double hardness, int naClConsume, int column) {
         this.no3 = no3;
         this.so4 = so4;
         this.hardness = hardness;
@@ -41,7 +42,7 @@ public class Calculator {
 
 
     private int inSpeed() {
-        int suAnion = no3 + so4;
+        double suAnion = no3 + so4;
         int speedAnion;
         int speedCation;
 
