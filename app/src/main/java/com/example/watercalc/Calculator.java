@@ -2,10 +2,9 @@ package com.example.watercalc;
 
 public class Calculator {
 
-    private int  naClConsume, column, salt;
-    private double no3, so4, hardness;
-    private long volumeTC007;
-    private double divideNO3SO4=1;
+    private int naClConsume, salt;
+    private double no3, so4, hardness, column;
+    private double volumeTC007, divideNO3SO4, temporary;
 
 
 //todo разобрать последовательность вычисления 111
@@ -17,9 +16,12 @@ public class Calculator {
     //
 
 
+    public double getTemporary() {
+        return temporary;
+    }
 
-
-    public Calculator(double no3, double so4, double hardness, int naClConsume, int column) {
+    //custom constructor
+    public Calculator(double no3, double so4, double hardness, int naClConsume, double column) {
         this.no3 = no3;
         this.so4 = so4;
         this.hardness = hardness;
@@ -28,6 +30,7 @@ public class Calculator {
 
     }
 
+    //calc 1
     public void divideNO3SO4() {
         divideNO3SO4 = (no3 / 62) / (no3 / 62 + so4 / 48);
     }
@@ -36,7 +39,7 @@ public class Calculator {
         return (int) (salt * (volumePA202()) + (0.12 * volumeTC007));
     }
 
-    public long getVolumeTC007() {
+    public double getVolumeTC007() {
         return volumeTC007;
     }
 
@@ -147,7 +150,7 @@ public class Calculator {
 
     //capacity if consume 125g per l
     public double anionCapacity125() {
-        divideNO3SO4();
+
 
         if (divideNO3SO4 > 0.8 && divideNO3SO4 <= 1.0) {
             return (0.6 * divideNO3SO4 + 0.01);
@@ -169,7 +172,7 @@ public class Calculator {
 
     //capacity if consume 250 g per l
     public double anionCapacity250() {
-        divideNO3SO4();
+
         if (divideNO3SO4 > 0.8 && divideNO3SO4 <= 1.0) {
             return (0.65 * divideNO3SO4 + 0.03);
         } else if (divideNO3SO4 > 0.6 && divideNO3SO4 <= 0.8) {
@@ -186,22 +189,23 @@ public class Calculator {
     }
 
 
-    public long volumePA202() {
+    public double volumePA202() {
 
-        long temporary;
 
-        temporary = Math.round((anionCapacityL() * column) / (anionCapacityL() + cationCapacityL()));
-
-        if (temporary > ((1 - (30 / 100))) * column) {
-            volumeTC007 = Math.round((Math.floor((70) * column) / 100));
+        temporary = (anionCapacityL() * column) / (anionCapacityL() + cationCapacityL());
+        //double volumePA202;
+        if (temporary > 0.7 * column) {
+            volumeTC007 = 0.7 * column;
             return column - volumeTC007;
-        } else if (temporary < ((30 / 100) * column)) {
-            volumeTC007 = Math.round((Math.floor((30 / 100) * column)));
-            //MessageBox.Show(valuePercentMix.ToString());
+
+        } else if (temporary < (0.3 * column)) {
+            volumeTC007 = 0.3 * column;
             return column - volumeTC007;
+
         } else
 
-            return column - temporary;
+        volumeTC007 = temporary;
+        return column - temporary;
 
     }
 }

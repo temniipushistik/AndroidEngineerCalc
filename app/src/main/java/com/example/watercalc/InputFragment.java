@@ -100,28 +100,28 @@ public class InputFragment extends Fragment {
                 //put the correct item to bundle
                 switch (item) {
                     case "8x44":
-                        bundle.putInt("column", 20);
+                        bundle.putDouble("column", 20);
                         break;
                     case "10x44":
-                        bundle.putInt("column", 25);
+                        bundle.putDouble("column", 25);
                         break;
                     case "10x54":
-                        bundle.putInt("column", 38);
+                        bundle.putDouble("column", 38);
                         break;
                     case "12x52":
-                        bundle.putInt("column", 50);
+                        bundle.putDouble("column", 50);
                         break;
                     case "13x54":
-                        bundle.putInt("column", 50);
+                        bundle.putDouble("column", 50);
                         break;
                     case "14x65":
-                        bundle.putInt("column", 85);
+                        bundle.putDouble("column", 85);
                         break;
                     case "16x65":
-                        bundle.putInt("column", 113);
+                        bundle.putDouble("column", 113);
                         break;
                     case "18x65":
-                        bundle.putInt("column", 150);
+                        bundle.putDouble("column", 150);
                         break;
 
 
