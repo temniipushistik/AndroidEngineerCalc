@@ -9,16 +9,6 @@ public class Calculator {
     private double volumeTC007, divideNO3SO4, temporary, square;
 
 
-//todo amount of salt per regeneration
-    //todo
-    //speed() -0
-    //cationCapacityL() - 0
-    // anionCapacityL()-0
-    //gap125()1
-
-    //
-
-
     public double getTemporary() {
         return temporary;
     }

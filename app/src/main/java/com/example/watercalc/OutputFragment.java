@@ -44,6 +44,8 @@ public class OutputFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_output, null);
         Bundle bundle = getArguments();
 
+        //put values from bundle to values
+
         no3 = bundle.getDouble("NO3");
         so4 = bundle.getDouble("SO4");
         hardness = bundle.getDouble("Hardness");
@@ -57,19 +59,18 @@ public class OutputFragment extends Fragment {
         return view;
     }
 
+    //create visual part of fragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         Calculator calculator = new Calculator(no3, so4, hardness, naClConsume, column, square);
-        // calculator.divideNO3SO4();
 
+        //link values and elements of view
 
         no3Out = view.findViewById(R.id.gap_nitrate_text);
         pa202Volume = view.findViewById(R.id.pa202_text);
         salt = view.findViewById(R.id.salt);
         breakStoneOut = view.findViewById(R.id.breakstone);
-
-
         tc007Volume = view.findViewById(R.id.TC007_text);
         naClConsumeOut = view.findViewById(R.id.breakstone);
         columnOut = view.findViewById(R.id.workflow);
@@ -78,20 +79,13 @@ public class OutputFragment extends Fragment {
         workFlowOut = view.findViewById(R.id.workflow);
         capacityOut = view.findViewById(R.id.capacity);
 
-//add the gap of nitrates below
+// fill fields from bundle and a calculator
         calculator.divideNO3SO4();
         no3Out.setText(String.format("%.1f", calculator.gap()));
-
-        calculator.anionCapacity125();
-        calculator.anionCapacity250();
-        calculator.anionCapacityL();
-        calculator.cationCapacityL();
-        pa202perL.setText(String.format("%.3f", calculator.anionCapacityL()));
-        tc007perL.setText(String.format("%.3f", calculator.cationCapacityL()));
+        pa202perL.setText(String.format("%.2f", calculator.anionCapacityL()));
+        tc007perL.setText(String.format("%.2f", calculator.cationCapacityL()));
         pa202Volume.setText(String.format("%.1f", calculator.volumePA202()));
-
         tc007Volume.setText(String.format("%.1f", calculator.getVolumeTC007()));
-
         naClConsumeOut.setText(String.valueOf(naClConsume));
         columnOut.setText(String.valueOf(column));
         salt.setText(String.format("%.1f", calculator.getSalt()));
