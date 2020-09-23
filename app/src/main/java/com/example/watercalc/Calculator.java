@@ -1,13 +1,16 @@
 package com.example.watercalc;
 
+import android.os.Bundle;
+
 public class Calculator {
 
     private int naClConsume, salt;
     private double no3, so4, hardness, column;
-    private double volumeTC007, divideNO3SO4, temporary;
+    private double volumeTC007, divideNO3SO4, temporary, square;
 
 
-//todo разобрать последовательность вычисления 111
+//todo amount of salt per regeneration
+    //todo
     //speed() -0
     //cationCapacityL() - 0
     // anionCapacityL()-0
@@ -20,13 +23,15 @@ public class Calculator {
         return temporary;
     }
 
+
     //custom constructor
-    public Calculator(double no3, double so4, double hardness, int naClConsume, double column) {
+    public Calculator(double no3, double so4, double hardness, int naClConsume, double column, double square) {
         this.no3 = no3;
         this.so4 = so4;
         this.hardness = hardness;
         this.naClConsume = naClConsume;
         this.column = column;
+        this.square = square;
 
     }
 
@@ -35,8 +40,8 @@ public class Calculator {
         divideNO3SO4 = (no3 / 62) / (no3 / 62 + so4 / 48);
     }
 
-    public int getSalt() {
-        return (int) (salt * (volumePA202()) + (0.12 * volumeTC007));
+    public double getSalt() {
+        return (salt * (volumePA202()) / 1000 + (0.12 * volumeTC007));
     }
 
     public double getVolumeTC007() {
@@ -71,6 +76,12 @@ public class Calculator {
         else speedCation = 10;
 
         return Math.min(speedAnion, speedCation);
+
+
+    }
+
+    public double flow() {
+        return (inSpeed() * square);
 
 
     }
@@ -143,7 +154,7 @@ public class Calculator {
         }
     }
 
-    public double Capacity() {
+    public double capacity() {
 
         return Math.min(cationCapacityL() * volumeTC007, volumePA202() * anionCapacityL());
     }
@@ -204,7 +215,7 @@ public class Calculator {
 
         } else
 
-        volumeTC007 = temporary;
+            volumeTC007 = temporary;
         return column - temporary;
 
     }

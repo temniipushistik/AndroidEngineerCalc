@@ -18,8 +18,9 @@ import android.widget.TextView;
  */
 public class OutputFragment extends Fragment {
     int naClConsume;
-    double no3, so4, hardness, column;
-    private TextView no3Out, pa202Volume, tc007Volume, columnOut, naClConsumeOut, salt, tc007perL, pa202perL;
+    double no3, so4, hardness, column, breakStone;
+    double square;
+    private TextView no3Out, pa202Volume, tc007Volume, columnOut, naClConsumeOut, salt, tc007perL, pa202perL, breakStoneOut, workFlowOut, capacityOut;
 
 
     public static OutputFragment newInstance() {
@@ -48,6 +49,8 @@ public class OutputFragment extends Fragment {
         hardness = bundle.getDouble("Hardness");
         naClConsume = bundle.getInt("naClConsume");
         column = bundle.getDouble("column");
+        square = bundle.getDouble("square");
+        breakStone = bundle.getInt("breakstone");
 
 
         // Inflate the layout for this fragment
@@ -56,13 +59,15 @@ public class OutputFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Calculator calculator = new Calculator(no3, so4, hardness, naClConsume, column);
+
+        Calculator calculator = new Calculator(no3, so4, hardness, naClConsume, column, square);
         // calculator.divideNO3SO4();
 
 
         no3Out = view.findViewById(R.id.gap_nitrate_text);
         pa202Volume = view.findViewById(R.id.pa202_text);
         salt = view.findViewById(R.id.salt);
+        breakStoneOut = view.findViewById(R.id.breakstone);
 
 
         tc007Volume = view.findViewById(R.id.TC007_text);
@@ -70,26 +75,29 @@ public class OutputFragment extends Fragment {
         columnOut = view.findViewById(R.id.workflow);
         tc007perL = view.findViewById(R.id.TC007perL);
         pa202perL = view.findViewById(R.id.PA202perL);
+        workFlowOut = view.findViewById(R.id.workflow);
+        capacityOut = view.findViewById(R.id.capacity);
 
 //add the gap of nitrates below
         calculator.divideNO3SO4();
-        no3Out.setText(String.format("%.1f",calculator.gap()));
+        no3Out.setText(String.format("%.1f", calculator.gap()));
 
         calculator.anionCapacity125();
         calculator.anionCapacity250();
         calculator.anionCapacityL();
         calculator.cationCapacityL();
-        pa202perL.setText(String.format("%.3f",calculator.anionCapacityL()));
-        tc007perL.setText(String.format("%.3f",calculator.cationCapacityL()));
-        pa202Volume.setText(String.format("%.1f",calculator.volumePA202()));
+        pa202perL.setText(String.format("%.3f", calculator.anionCapacityL()));
+        tc007perL.setText(String.format("%.3f", calculator.cationCapacityL()));
+        pa202Volume.setText(String.format("%.1f", calculator.volumePA202()));
 
-        tc007Volume.setText(String.format("%.1f",calculator.getVolumeTC007()));
+        tc007Volume.setText(String.format("%.1f", calculator.getVolumeTC007()));
 
         naClConsumeOut.setText(String.valueOf(naClConsume));
         columnOut.setText(String.valueOf(column));
-        salt.setText(String.valueOf(column));
-
-
+        salt.setText(String.format("%.1f", calculator.getSalt()));
+        breakStoneOut.setText(String.valueOf(breakStone));
+        workFlowOut.setText(String.valueOf(calculator.flow()));
+        capacityOut.setText(String.format("%.1f", calculator.capacity()));
 
         super.onViewCreated(view, savedInstanceState);
     }

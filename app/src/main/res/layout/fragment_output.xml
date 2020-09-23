@@ -131,7 +131,7 @@
                 android:text="regeneration, m3"></TextView>
 
             <TextView
-                android:id="@+id/cubmeter"
+                android:id="@+id/capacity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"

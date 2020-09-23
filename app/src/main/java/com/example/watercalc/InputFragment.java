@@ -101,27 +101,43 @@ public class InputFragment extends Fragment {
                 switch (item) {
                     case "8x44":
                         bundle.putDouble("column", 20);
+                        bundle.putDouble("square", 0.033);
+                        bundle.putInt("breakstone", 6);
                         break;
                     case "10x44":
                         bundle.putDouble("column", 25);
+                        bundle.putDouble("square", 0.052);
+                        bundle.putInt("breakstone", 10);
                         break;
                     case "10x54":
                         bundle.putDouble("column", 38);
+                        bundle.putDouble("square", 0.052);
+                        bundle.putInt("breakstone", 10);
                         break;
                     case "12x52":
                         bundle.putDouble("column", 50);
+                        bundle.putDouble("square", 0.074);
+                        bundle.putInt("breakstone", 15);
                         break;
                     case "13x54":
                         bundle.putDouble("column", 50);
+                        bundle.putDouble("square", 0.088);
+                        bundle.putInt("breakstone", 15);
                         break;
                     case "14x65":
                         bundle.putDouble("column", 85);
+                        bundle.putDouble("square", 0.105);
+                        bundle.putInt("breakstone", 20);
                         break;
                     case "16x65":
                         bundle.putDouble("column", 113);
+                        bundle.putDouble("square", 0.133);
+                        bundle.putInt("breakstone", 30);
                         break;
                     case "18x65":
                         bundle.putDouble("column", 150);
+                        bundle.putDouble("square", 0.189);
+                        bundle.putInt("breakstone", 40);
                         break;
 
 
@@ -136,7 +152,7 @@ public class InputFragment extends Fragment {
         };
         //attach selectListener to columnSpinner
 
-columnSpinner.setOnItemSelectedListener(itemSelectedListener);
+        columnSpinner.setOnItemSelectedListener(itemSelectedListener);
 
         final RadioGroup naClConsumeRadioGroup = view.findViewById(R.id.radioGroupNaCl);
         naClConsumeRadio125 = view.findViewById(R.id.radioButton125);
