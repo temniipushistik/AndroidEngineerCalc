@@ -22,24 +22,6 @@ public class MainActivity extends AppCompatActivity {
         transaction.commit();
 
 
-
-      /*
-        calculate =  findViewById(R.id.buttonCalc);
-        No3 =  findViewById(R.id.No3Input);
-        So4 =  findViewById(R.id.So4Input);
-         calculate.setOnClickListener(new View.OnClickListener() {
-
-
-        @Override
-            public void onClick(View view) {
-
-                int NO3 =  (No3.getText() == null)?0:Integer.parseInt(No3.getText().toString());
-                int SO4 = (So4.getText() == null)?0:Integer.parseInt(So4.getText().toString());
-                calculate.setText((Integer.toString(NO3 + SO4)));
-            }
-        });
-*/
-
     }
 
 }

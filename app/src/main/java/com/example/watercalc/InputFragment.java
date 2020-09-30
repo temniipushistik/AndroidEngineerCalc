@@ -19,7 +19,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import android.widget.Spinner;
-import android.widget.Switch;
+
 
 import android.widget.Toast;
 
@@ -34,14 +34,17 @@ public class InputFragment extends Fragment {
     EditText no3;
     EditText so4;
     EditText hardness;
+    EditText NameOfAProject;
     private RadioButton naClConsumeRadio125;
     private RadioButton naClConsumeRadio250;
     private RadioGroup naClConsumeRadioGroup;
+    //  private String sizeOfColumn;
 
     private Button calculateButton;
 
     private Bundle bundle = new Bundle();
     OutputFragment fragment = new OutputFragment();
+
 
     //create an object for transferring info from bundle
 
@@ -78,6 +81,7 @@ public class InputFragment extends Fragment {
         no3 = view.findViewById(R.id.No3Input);
         so4 = view.findViewById(R.id.So4Input);
         hardness = view.findViewById(R.id.Hardness_input);
+        NameOfAProject = view.findViewById(R.id.NameOfAProject);
         final Spinner columnSpinner = view.findViewById(R.id.spinner);
 
 // configuration an adapter. The Adapter connects spinner and array
@@ -96,6 +100,7 @@ public class InputFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = (String) adapterView.getItemAtPosition(i);
+                bundle.putString("sizeOfColumn", item);
 
                 //put the correct item to bundle
                 switch (item) {
@@ -166,13 +171,15 @@ public class InputFragment extends Fragment {
             public void onClick(View view) {
                 if (!no3.getText().toString().equals("") &&
                         !so4.getText().toString().equals("") &&
-                        !hardness.getText().toString().equals("")) {
-                    //    OutputFragment fragment = new OutputFragment();
+                        !hardness.getText().toString().equals("") &&
+                        !NameOfAProject.getText().toString().equals("")) {
+
 
                     //transferring info from fragment input to bundle
                     bundle.putDouble("NO3", Double.valueOf(no3.getText().toString()));
                     bundle.putDouble("SO4", Double.valueOf(so4.getText().toString()));
                     bundle.putDouble("Hardness", Double.valueOf(hardness.getText().toString()));
+                    bundle.putString("NameOfSite", NameOfAProject.getText().toString());
                     //create logic with radiobutton
                     int checkedRadioButtonId = naClConsumeRadioGroup.getCheckedRadioButtonId();
                     if (checkedRadioButtonId == R.id.radioButton125) {

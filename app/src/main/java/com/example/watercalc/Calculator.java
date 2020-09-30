@@ -13,6 +13,8 @@ public class Calculator {
         return temporary;
     }
 
+    public Calculator() {
+    }
 
     //custom constructor
     public Calculator(double no3, double so4, double hardness, int naClConsume, double column, double square) {
@@ -26,8 +28,10 @@ public class Calculator {
     }
 
     //calc 1
-    public void divideNO3SO4() {
-        divideNO3SO4 = (no3 / 62) / (no3 / 62 + so4 / 48);
+    public double divideNO3SO4() {
+
+
+       return divideNO3SO4 = (no3 / 62) / (no3 / 62 + so4 / 48);
     }
 
     public double getSalt() {
@@ -75,6 +79,8 @@ public class Calculator {
 
 
     }
+
+
 
     //capacity of cation resin per l
     public double cationCapacityL() {

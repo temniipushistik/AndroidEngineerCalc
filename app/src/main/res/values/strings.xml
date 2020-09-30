@@ -6,8 +6,8 @@
     <string name="no3">Nitrate (NO3)</string>
     <string name="so4">Sulphate (SO4)</string>
     <string name="Hardness">Hardness</string>
-    <string name="output_information">output information</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="output_information">Output information</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="columns">
         <item>8x44</item>
