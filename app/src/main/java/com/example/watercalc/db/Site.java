@@ -8,10 +8,10 @@ import androidx.room.PrimaryKey;
 public class Site {
 
     @PrimaryKey
-    private Long mId;//primary key
+     Long mId;//primary key
 
     @ColumnInfo(name = "name_of_area")
-    private String mName;
+    String mName;
 
     @ColumnInfo(name = "input_info")
     private String inputInfo;

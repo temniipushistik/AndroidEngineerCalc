@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import android.widget.Toast;
 
 import com.example.watercalc.db.AppDatabase;
 import com.example.watercalc.db.Site;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +33,7 @@ public class OutputFragment extends Fragment {
     String sizeOfColumn, nameOfSite, inputAnalyze, equipment, outInfo;
     Button save;
     private TextView no3Out, pa202Volume, tc007Volume, columnOut, naClConsumeOut, salt, tc007perL, pa202perL, breakStoneOut, workFlowOut, capacityOut, outputText;
-
+    // final Handler handler = new Handler();
 
     public static OutputFragment newInstance() {
         OutputFragment fragment = new OutputFragment();
@@ -104,13 +107,20 @@ public class OutputFragment extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                site.setmName(nameOfSite);
-                site.setInputInfo(inputAnalyze);
-                site.setEquipment(equipment);
-                site.setOutputInfo(outInfo);
-                Toast.makeText(getActivity().getApplicationContext(),
-                        "data has been sent",
-                        Toast.LENGTH_SHORT).show();
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        db.siteDao().insert(site);
+                        site.setmName(nameOfSite);
+                        site.setInputInfo(inputAnalyze);
+                        site.setEquipment(equipment);
+                        site.setOutputInfo(outInfo);
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                "data has been sent",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }).start();
 
 
             }
