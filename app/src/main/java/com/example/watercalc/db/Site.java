@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class Site {
 
     @PrimaryKey
-  private Long mId;//primary key
+    private Long mId;//primary key
 
     @ColumnInfo(name = "name_of_area")
     private String mName;
