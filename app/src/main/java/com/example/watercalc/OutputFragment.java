@@ -17,8 +17,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.watercalc.db.App;
 import com.example.watercalc.db.AppDatabase;
 import com.example.watercalc.db.Site;
+import com.example.watercalc.db.SiteDao;
 
 import static android.content.ContentValues.TAG;
 
@@ -29,6 +31,7 @@ import static android.content.ContentValues.TAG;
  */
 public class OutputFragment extends Fragment {
     int naClConsume;
+
     double no3, so4, hardness, column, breakStone, square;
     String sizeOfColumn, nameOfSite, inputAnalyze, equipment, outInfo;
     Button save;
@@ -111,11 +114,14 @@ public class OutputFragment extends Fragment {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        db.siteDao().insert(site);
+                        AppDatabase db = App.getInstance().getDatabase();
+                        SiteDao siteDao = db.siteDao();
+                        site.setmId(1L);
                         site.setmName(nameOfSite);
                         site.setInputInfo(inputAnalyze);
                         site.setEquipment(equipment);
                         site.setOutputInfo(outInfo);
+                        siteDao.insert(site);
                         Toast.makeText(getActivity().getApplicationContext(),
                                 "data has been sent",
                                 Toast.LENGTH_SHORT).show();
@@ -139,6 +145,7 @@ public class OutputFragment extends Fragment {
         breakStoneOut.setText(String.valueOf(breakStone));
         workFlowOut.setText(String.format("%.1f", calculator.flow()));
         capacityOut.setText(String.format("%.1f", calculator.capacity()));
+
 
 
         inputAnalyze = "NO3 - " + no3 + " mg/l, " + "SO4 - " + so4 + " mg/l, " + "Hardness - " + hardness + " mg-eq/l";
