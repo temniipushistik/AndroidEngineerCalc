@@ -1,266 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".InputFragment">
 
 
     <TextView
         android:id="@+id/inputInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:padding="10dp"
+
+        android:gravity="center|center"
         android:text="@string/input_information"
-        android:textSize="20sp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:textSize="22sp"
 
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/NameOfAProject"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:text="Input a name of your project here"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputInfo" />
+
+    <TableRow
+        android:id="@+id/no3_row"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NameOfAProject">
 
         <TextView
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="Name of your project"
-            android:textSize="15sp">
 
-
-        </TextView>
-
-        <EditText
-            android:id="@+id/NameOfAProject"
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:inputType="text">
-
-        </EditText>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="30dp"
             android:text="@string/no3"
-            android:textSize="15sp">
+            app:layout_constraintStart_toStartOf="parent" />
 
-
-        </TextView>
 
         <EditText
             android:id="@+id/No3Input"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:inputType="number">
+            android:layout_weight="2"
+            android:gravity="center|right"
+            android:paddingRight="30dp"
+            android:text="input your value"
+            app:layout_constraintStart_toStartOf="parent" />
+    </TableRow>
 
-        </EditText>
+    <TableRow
+        android:id="@+id/so4_row"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/no3_row">
 
         <TextView
-            android:layout_width="100dp"
+
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:gravity="center_vertical"
-            android:text="@string/mg_l"
-            android:textSize="15sp">
-
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="30dp"
             android:text="@string/so4"
-            android:textSize="15sp">
-
-        </TextView>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/So4Input"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:inputType="number">
-
-
-        </EditText>
-
-        <TextView
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:layout_weight="2"
+            android:gravity="center|right"
+            android:paddingRight="30dp"
+            android:text="input your value"
+            app:layout_constraintStart_toStartOf="parent" />
+    </TableRow>
 
-            android:text="@string/mg_l"
-            android:textSize="15sp">
-
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+    <TableRow
+        android:id="@+id/hardness_row"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/so4_row">
 
         <TextView
-            android:id="@+id/Hardness"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="@string/Hardness"
-            android:textSize="15sp">
 
-        </TextView>
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="30dp"
+            android:text="@string/Hardness"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
         <EditText
             android:id="@+id/Hardness_input"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:gravity="center"
-            android:inputType="number">
-
-        </EditText>
-
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="mg eq/l"
-            android:textSize="15sp">
-
-        </TextView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginVertical="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="20dp"
+            android:layout_weight="2"
+            android:gravity="center|right"
+            android:paddingRight="30dp"
+            android:text="input your value"
+            app:layout_constraintStart_toStartOf="parent" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/column"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hardness_row">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="30dp"
             android:text="Size of column"
-            android:textSize="15sp"></TextView>
+            app:layout_constraintStart_toStartOf="parent" />
+
 
         <Spinner
             android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginEnd="80dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:entries="@array/columns"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center" />
-
-            />
+            android:gravity="center|center"
+            android:spinnerMode="dropdown" />
 
 
-    </LinearLayout>
+    </TableRow>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/selection"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="select consuming of salt below:"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/column">
+        ></TextView>
 
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:id="@+id/radioGroupNaCl"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:layout_constraintDimensionRatio="6:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selection">
 
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            android:text="Consume of NaCl, l"
-            android:textSize="15sp">
-
-        </TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <LinearLayout
+        <RadioButton
+            android:id="@+id/radioButton125"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
 
-            android:orientation="vertical">
+            android:text="125g/l" />
 
+        <RadioButton
+            android:id="@+id/radioButton250"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
+            android:text="250g/l" />
 
+    </RadioGroup>
 
-            <RadioGroup
-                android:id="@+id/radioGroupNaCl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
-
-
-                <RadioButton
-                    android:id="@+id/radioButton125"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="125g/l" />
-
-                <RadioButton
-                    android:id="@+id/radioButton250"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="250g/l" />
-
-            </RadioGroup>
-
-            <Button
-                android:id="@+id/buttonCalc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-
-                android:text="Calculate"
-                android:textSize="20sp" />
+    <Button
+        android:id="@+id/buttonCalc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center"
 
 
-        </LinearLayout>
+        android:text="Calculate"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="6:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupNaCl" />
 
 
-    </LinearLayout>
-
-</LinearLayout>
-
-
+</androidx.constraintlayout.widget.ConstraintLayout>
