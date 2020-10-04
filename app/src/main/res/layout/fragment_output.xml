@@ -1,242 +1,346 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".OutputFragment">
 
 
     <TextView
-        android:id="@+id/inputInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
+        android:id="@+id/outputInfo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:padding="20dp"
+        android:background="#1E88E5"
+        android:textColor="@android:color/white"
+        android:gravity="center|center"
         android:text="@string/output_information"
-        android:textSize="20sp" />
 
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:textSize="22sp"
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="Gap of nitrates, mg/l"></TextView>
-
-            <TextView
-                android:id="@+id/gap_nitrate_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="gap of nitrates"></TextView>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="Volume of resin PA202, l"></TextView>
-
-            <TextView
-                android:id="@+id/pa202_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="PA202"></TextView>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="Volume of resin TC007, l"></TextView>
-
-            <TextView
-                android:id="@+id/TC007_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="TC007"></TextView>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="breakstone, kg"></TextView>
-
-            <TextView
-                android:id="@+id/breakstone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="Breakstone"></TextView>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="Work flow, m3ph"></TextView>
-
-            <TextView
-                android:id="@+id/workflow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="work flow"></TextView>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="Regeneration, m3"></TextView>
-
-            <TextView
-                android:id="@+id/capacity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="m3"></TextView>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="Salt per regen, kg"></TextView>
-
-            <TextView
-                android:id="@+id/salt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="salt"></TextView>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="Resource of TC007, m3"></TextView>
-
-            <TextView
-                android:id="@+id/TC007perL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="TC007"></TextView>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="Resource of PA202, m3"></TextView>
-
-            <TextView
-                android:id="@+id/PA202perL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:text="PA202"></TextView>
-
-        </TableRow>
+        app:layout_constraintDimensionRatio="7:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-    </TableLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-
-        android:layout_height="100dp"
-        android:background="@android:color/white"
-        android:orientation="vertical">
+    <TableRow
+        android:id="@+id/no3out"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outputInfo">
 
         <TextView
-            android:id="@+id/OutinfoTitle"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            android:layout_marginTop="10dp"
-            android:textSize="16sp"
-            android:text="The result has based on current input data:"></TextView>
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:text="Gap of nitrates, mg/l"></TextView>
 
         <TextView
-            android:id="@+id/outinfo"
+            android:id="@+id/gap_nitrate_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:text="The result has based on current input data:"></TextView>
+            android:layout_marginRight="20dp"
+            android:text="gap of nitrates"></TextView>
 
-    </LinearLayout>
+    </TableRow>
+
+    <TableRow
+
+
+        android:id="@+id/pa_raw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:background="#E3F2FD"
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/no3out">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:text="Volume of resin PA202, l"></TextView>
+
+        <TextView
+            android:id="@+id/pa202_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginRight="20dp"
+            android:text="PA202"></TextView>
+
+    </TableRow>
+
+    <TableRow
+
+        android:id="@+id/tc007raw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pa_raw">>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:text="Volume of resin TC007, l"></TextView>
+
+        <TextView
+            android:id="@+id/TC007_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="TC007"></TextView>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/breakstone_raw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+    android:background="#E3F2FD"
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tc007raw">>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:text="breakstone, kg"></TextView>
+
+        <TextView
+            android:id="@+id/breakstone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+
+            android:text="Breakstone"></TextView>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/workflow_raw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakstone_raw">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:text="Work flow, m3ph"></TextView>
+
+        <TextView
+            android:id="@+id/workflow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="work flow"></TextView>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/capacity_raw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:background="#E3F2FD"
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/workflow_raw">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:text="Regeneration, m3"></TextView>
+
+        <TextView
+            android:id="@+id/capacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="m3"></TextView>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/salt_raw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/capacity_raw">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:text="Salt per regen, kg"></TextView>
+
+        <TextView
+            android:id="@+id/salt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="salt"></TextView>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/resource_tc007_raw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#E3F2FD"
+        android:gravity="center"
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/salt_raw">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:text="Resource of TC007, m3"></TextView>
+
+        <TextView
+            android:id="@+id/TC007perL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="TC007"></TextView>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/resource_pc002_raw"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resource_tc007_raw">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="2"
+            android:text="Resource of PA202, m3"></TextView>
+
+        <TextView
+            android:id="@+id/PA202perL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="PA202"></TextView>
+
+    </TableRow>
+
+
+    <TextView
+        android:id="@+id/OutinfoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|center"
+
+        android:background="#E3F2FD"
+
+        android:paddingLeft="20dp"
+        android:paddingVertical="10dp"
+
+
+        app:layout_constraintDimensionRatio="10:1"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resource_pc002_raw"
+        android:text="The result has based on current input data:"
+        android:textSize="12sp"></TextView>
+
+    <TextView
+        android:id="@+id/outinfo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center|center"
+        app:layout_constraintDimensionRatio="8:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OutinfoTitle"
+        android:text="The result has based on current input data:"></TextView>
+
 
     <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginVertical="20dp"
         android:text="Save to database"
 
-        ></Button>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#1E88E5"
+        android:padding="10dp"
+        android:textColor="@android:color/white"
 
-</LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/outinfo">
 
+    </Button>
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="72dp"
+
+        android:background="#1E88E5"
+        android:padding="10dp"
+        android:text="Clear Database"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outinfo"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 

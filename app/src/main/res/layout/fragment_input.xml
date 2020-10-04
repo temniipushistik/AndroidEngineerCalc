@@ -13,12 +13,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-
+        android:background="#1E88E5"
+        android:textColor="@android:color/white"
         android:gravity="center|center"
+
         android:text="@string/input_information"
         android:textSize="22sp"
 
-        app:layout_constraintDimensionRatio="10:1"
+        app:layout_constraintDimensionRatio="7:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,8 +30,12 @@
         android:id="@+id/NameOfAProject"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="center_horizontal"
-        android:text="Input a name of your project here"
+        android:background="#1976D2"
+        android:gravity="center"
+        android:hint="Input a name of your project here"
+        android:inputType="text"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
         app:layout_constraintDimensionRatio="8:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputInfo" />
@@ -59,9 +65,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:inputType="numberDecimal"
             android:gravity="center|right"
             android:paddingRight="30dp"
-            android:text="input your value"
+            android:hint="input your value"
             app:layout_constraintStart_toStartOf="parent" />
     </TableRow>
 
@@ -91,7 +98,8 @@
             android:layout_weight="2"
             android:gravity="center|right"
             android:paddingRight="30dp"
-            android:text="input your value"
+            android:inputType="numberDecimal"
+            android:hint="input your value"
             app:layout_constraintStart_toStartOf="parent" />
     </TableRow>
 
@@ -122,7 +130,8 @@
             android:layout_weight="2"
             android:gravity="center|right"
             android:paddingRight="30dp"
-            android:text="input your value"
+            android:inputType="numberDecimal"
+            android:hint="input your value"
             app:layout_constraintStart_toStartOf="parent" />
     </TableRow>
 
@@ -185,6 +194,7 @@
             android:id="@+id/radioButton125"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
 
             android:text="125g/l" />
 
@@ -202,12 +212,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center"
+        android:background="#1E88E5"
+        android:textColor="@android:color/white"
+        android:paddingHorizontal="40dp"
 
 
         android:text="Calculate"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="6:1"
+        app:layout_constraintDimensionRatio="5:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupNaCl" />

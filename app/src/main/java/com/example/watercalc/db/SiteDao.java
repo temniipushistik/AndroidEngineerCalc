@@ -1,25 +1,33 @@
 package com.example.watercalc.db;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
 @Dao
 public interface SiteDao {
-    @Query("SELECT * FROM Site")
-   List<Site> getAll();
+    @Query("SELECT * FROM site")
+    List<Site> getAll();
 
-    @Query("SELECT * FROM Site WHERE mId=:id")
+    @Query("DELETE FROM site")
+    List<Site> deleteAll();
+
+    @Query("SELECT * FROM site WHERE id=:id")
     Site getById(long id);
 
-    @Query("SELECT * FROM Site WHERE name_of_area=:name")
+    @Query("SELECT * FROM Site WHERE nameOfArea=:name")
     Site getByName(String name);
 
 
     @Insert
     void insert(Site site);
+
+    @Update
+    void update(Site site);
 
 
 }

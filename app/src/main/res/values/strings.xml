@@ -2,10 +2,10 @@
     <string name="app_name">WaterCalc</string>
     <string name="mg_l">mg/l</string>
     <string name="media_calc">Media calculate</string>
-    <string name="input_information">Input information</string>
-    <string name="no3">Nitrate (NO3)</string>
-    <string name="so4">Sulphate (SO4)</string>
-    <string name="Hardness">Hardness</string>
+    <string name="input_information">INPUT INFORMATION</string>
+    <string name="no3">Nitrate (NO3), mg/l</string>
+    <string name="so4">Sulphate (SO4), mg/l</string>
+    <string name="Hardness">Hardness, mg-eq/l</string>
     <string name="output_information">Output information</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

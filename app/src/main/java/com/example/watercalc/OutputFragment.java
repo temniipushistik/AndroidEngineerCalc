@@ -1,15 +1,12 @@
 package com.example.watercalc;
 
 import android.app.Activity;
-import android.app.Application;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.room.Room;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +14,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.watercalc.db.App;
 import com.example.watercalc.db.AppDatabase;
 import com.example.watercalc.db.Site;
 import com.example.watercalc.db.SiteDao;
-
-import static android.content.ContentValues.TAG;
+import com.example.watercalc.db.apis.DeleteAllDatasAsync;
+import com.example.watercalc.db.apis.GetAllDatasAsync;
+import com.example.watercalc.db.apis.WriteDataAsync;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +31,7 @@ public class OutputFragment extends Fragment {
 
     double no3, so4, hardness, column, breakStone, square;
     String sizeOfColumn, nameOfSite, inputAnalyze, equipment, outInfo;
-    Button save;
+    Button save, delete;
     private TextView no3Out, pa202Volume, tc007Volume, columnOut, naClConsumeOut, salt, tc007perL, pa202perL, breakStoneOut, workFlowOut, capacityOut, outputText;
     // final Handler handler = new Handler();
 
@@ -45,11 +42,6 @@ public class OutputFragment extends Fragment {
         return fragment;
 
     }
-
-    AppDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(), AppDatabase.class, "database").build();
-
-
-    Site site = new Site();
 
 
     @Override
@@ -106,31 +98,41 @@ public class OutputFragment extends Fragment {
         capacityOut = view.findViewById(R.id.capacity);
         outputText = view.findViewById(R.id.outinfo);
         save = view.findViewById(R.id.save);
+        delete = view.findViewById(R.id.delete);
+
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Site site = new Site();
+                new DeleteAllDatasAsync(getActivity()).execute(site);;
+
+            }
+
+        });
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Site site = new Site();
+                site.setNameOfArea(nameOfSite);
+                site.setInputInfo(inputAnalyze);
+                site.setEquipment(equipment);
+                site.setOutputInfo(outInfo);
+                try {
+                    //write info to database
+                    (new WriteDataAsync(getActivity())).execute(site);
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        AppDatabase db = App.getInstance().getDatabase();
-                        SiteDao siteDao = db.siteDao();
-                        site.setmId(1L);
-                        site.setmName(nameOfSite);
-                        site.setInputInfo(inputAnalyze);
-                        site.setEquipment(equipment);
-                        site.setOutputInfo(outInfo);
-                        siteDao.insert(site);
-                        Toast.makeText(getActivity().getApplicationContext(),
-                                "data has been sent",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }).start();
-
-
+                    Toast.makeText(getActivity(),
+                            //get info from database
+                            (new GetAllDatasAsync(getActivity())).execute().get().toString(),
+                            Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
+
 
 // fill fields from bundle and the calculator
         calculator.divideNO3SO4();
@@ -147,10 +149,10 @@ public class OutputFragment extends Fragment {
         capacityOut.setText(String.format("%.1f", calculator.capacity()));
 
 
-
         inputAnalyze = "NO3 - " + no3 + " mg/l, " + "SO4 - " + so4 + " mg/l, " + "Hardness - " + hardness + " mg-eq/l";
-        equipment = " Size of column - " + sizeOfColumn + "Consume of salt - " + String.valueOf(naClConsume) + "g/l";
+        equipment = " Size of column - " + sizeOfColumn + ", Consume of salt - " + String.valueOf(naClConsume) + "g/l";
         outInfo = "gap of NO3 - " + calculator.gap() + "" + "flow - " + calculator.flow() + "capacity - " + calculator.capacity();
+
 
         outputText.setText(inputAnalyze + "\n" + equipment);
 

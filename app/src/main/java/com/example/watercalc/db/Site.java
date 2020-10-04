@@ -7,36 +7,31 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Site {
 
-    @PrimaryKey
-     Long mId;//primary key
+    @PrimaryKey(autoGenerate = true)
+    private Long id; //primary key
 
-    @ColumnInfo(name = "name_of_area")
-    String mName;
+    private String nameOfArea;
 
-    @ColumnInfo(name = "input_info")
     private String inputInfo;
 
-    @ColumnInfo(name = "equipment")
     private String equipment;
 
-    @ColumnInfo(name = "output_info")
     private String outputInfo;
 
-
-    public Long getmId() {
-        return mId;
+    public Long getId() {
+        return id;
     }
 
-    public void setmId(Long mId) {
-        this.mId = mId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getmName() {
-        return mName;
+    public String getNameOfArea() {
+        return nameOfArea;
     }
 
-    public void setmName(String mName) {
-        this.mName = mName;
+    public void setNameOfArea(String nameOfArea) {
+        this.nameOfArea = nameOfArea;
     }
 
     public String getInputInfo() {
@@ -61,6 +56,17 @@ public class Site {
 
     public void setOutputInfo(String outputInfo) {
         this.outputInfo = outputInfo;
+    }
+
+    @Override
+    public String toString() {
+        return "Site{" +
+                "id=" + id +
+                ", nameOfArea='" + nameOfArea + '\'' +
+                ", inputInfo='" + inputInfo + '\'' +
+                ", equipment='" + equipment + '\'' +
+                ", outputInfo='" + outputInfo + '\'' +
+                '}';
     }
 }
 
