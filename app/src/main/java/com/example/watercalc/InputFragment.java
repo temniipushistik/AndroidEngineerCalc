@@ -87,7 +87,7 @@ public class InputFragment extends Fragment {
       //  View rootView = inflater.inflate(R.layout.fragment_input, container, false);
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         //toolbar.setTitle("INPUT INFORMATION");
-        TextView textView = getActivity().findViewById(R.id.toolbar);
+        TextView textView = getActivity().findViewById(R.id.toolbar_title);
         textView.setText("INPUT INFORMATION");
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 

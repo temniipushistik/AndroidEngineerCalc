@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -58,6 +60,12 @@ public class OutputFragment extends Fragment {
         //idk what's going on
         View view = inflater.inflate(R.layout.fragment_output, null);
         Bundle bundle = getArguments();
+
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+
+        TextView textView = getActivity().findViewById(R.id.toolbar_title);
+        textView.setText("OUTPUT INFORMATION");
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         //put values from bundle to  values
 
