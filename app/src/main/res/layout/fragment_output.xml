@@ -9,25 +9,6 @@
     tools:context=".OutputFragment">
 
 
-    <TextView
-        android:id="@+id/outputInfo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:background="#1E88E5"
-        android:textColor="@android:color/white"
-        android:gravity="center|center"
-        android:text="@string/output_information"
-
-
-        android:textSize="22sp"
-
-        app:layout_constraintDimensionRatio="7:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
     <TableRow
         android:id="@+id/no3out"
         android:layout_width="0dp"
@@ -36,7 +17,7 @@
         app:layout_constraintDimensionRatio="10:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outputInfo">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
 

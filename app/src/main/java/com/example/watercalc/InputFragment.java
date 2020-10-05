@@ -1,9 +1,12 @@
 package com.example.watercalc;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -22,6 +25,10 @@ import android.widget.Spinner;
 
 
 import android.widget.Toast;
+//import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
+
+import java.time.format.TextStyle;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,6 +45,9 @@ public class InputFragment extends Fragment {
     private RadioButton naClConsumeRadio125;
     private RadioButton naClConsumeRadio250;
     private RadioGroup naClConsumeRadioGroup;
+    Toolbar toolbar;
+
+
     //  private String sizeOfColumn;
 
     private Button calculateButton;
@@ -64,6 +74,8 @@ public class InputFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
 
     }
@@ -71,10 +83,18 @@ public class InputFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        View rootView = inflater.inflate(R.layout.fragment_input, container, false);
+        toolbar = rootView.findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        }
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_input, container, false);
+        return rootView;
+                //inflater.inflate(R.layout.fragment_input, container, false);
     }
+
+    //версия андроида не ниже лолипопа, чтобы поддерживался тулбар
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -83,6 +103,10 @@ public class InputFragment extends Fragment {
         hardness = view.findViewById(R.id.Hardness_input);
         NameOfAProject = view.findViewById(R.id.NameOfAProject);
         final Spinner columnSpinner = view.findViewById(R.id.spinner);
+
+        //  toolbar = getActivity().findViewById(R.id.toolbar);
+        //   toolbar.setTitle("INPUT INFORMATION");
+
 
 // configuration an adapter. The Adapter connects spinner and array
         ArrayAdapter<CharSequence> adapter =

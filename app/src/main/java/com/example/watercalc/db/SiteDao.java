@@ -14,7 +14,7 @@ public interface SiteDao {
     List<Site> getAll();
 
     @Query("DELETE FROM site")
-    List<Site> deleteAll();
+    void deleteAll();
 
     @Query("SELECT * FROM site WHERE id=:id")
     Site getById(long id);
@@ -28,6 +28,9 @@ public interface SiteDao {
 
     @Update
     void update(Site site);
+
+    @Delete
+    void delete(Site site);
 
 
 }

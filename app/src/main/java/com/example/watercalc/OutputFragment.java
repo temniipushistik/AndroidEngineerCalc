@@ -104,13 +104,17 @@ public class OutputFragment extends Fragment {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Site site = new Site();
-                new DeleteAllDatasAsync(getActivity()).execute(site);;
+                //getActivity()) - аргумент для конструктора
+                //через конструктр создаем асинктаску, которая выполняет действие (execute - указание выполнить)
+                //у асинктаска можно вы полнть только один раз. каждый раз асинктаску нужно создавать заново
+
+                (new DeleteAllDatasAsync(getActivity())).execute();
+
 
             }
 
         });
-
+//все листенеры интерфейсы. Мы не можем создать экземпляр интерфейса, поэтому используем анонимный класс
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
