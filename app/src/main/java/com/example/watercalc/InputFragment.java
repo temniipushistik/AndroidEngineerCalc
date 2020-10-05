@@ -24,6 +24,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 
+import android.widget.TextView;
 import android.widget.Toast;
 //import android.widget.Toolbar;
 import androidx.appcompat.widget.Toolbar;
@@ -83,14 +84,15 @@ public class InputFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_input, container, false);
-        toolbar = rootView.findViewById(R.id.toolbar);
-        if (toolbar != null) {
-            ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        }
+      //  View rootView = inflater.inflate(R.layout.fragment_input, container, false);
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+        //toolbar.setTitle("INPUT INFORMATION");
+        TextView textView = getActivity().findViewById(R.id.toolbar);
+        textView.setText("INPUT INFORMATION");
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
         // Inflate the layout for this fragment
-        return rootView;
-                //inflater.inflate(R.layout.fragment_input, container, false);
+        return inflater.inflate(R.layout.fragment_input, container, false);
     }
 
     //версия андроида не ниже лолипопа, чтобы поддерживался тулбар
