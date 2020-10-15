@@ -321,6 +321,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outinfo"></Button>
 
+    <Button
+        android:id="@+id/buttonShowDataBase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#1E88E5"
+        android:textColor="@android:color/white"
+        android:text="Show database"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delete" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

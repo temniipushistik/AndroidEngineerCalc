@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,17 +34,20 @@ public class OutputFragment extends Fragment {
 
     double no3, so4, hardness, column, breakStone, square;
     String sizeOfColumn, nameOfSite, inputAnalyze, equipment, outInfo;
-    Button save, delete;
+    Button save, delete, show;
     private TextView no3Out, pa202Volume, tc007Volume, columnOut, naClConsumeOut, salt, tc007perL, pa202perL, breakStoneOut, workFlowOut, capacityOut, outputText;
     // final Handler handler = new Handler();
 
-    public static OutputFragment newInstance() {
-        OutputFragment fragment = new OutputFragment();
+    public static DbFragment newInstance() {
+        DbFragment fragment = new DbFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
 
     }
+
+    private Bundle bundle = new Bundle();
+    OutputFragment fragment = new OutputFragment();
 
 
     @Override
@@ -107,13 +111,14 @@ public class OutputFragment extends Fragment {
         outputText = view.findViewById(R.id.outinfo);
         save = view.findViewById(R.id.save);
         delete = view.findViewById(R.id.delete);
+        show = view.findViewById(R.id.buttonShowDataBase);
 
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //getActivity()) - аргумент для конструктора
-                //через конструктр создаем асинктаску, которая выполняет действие (execute - указание выполнить)
+                //через конструктор создаем асинктаску, которая выполняет действие (execute - указание выполнить)
                 //у асинктаска можно вы полнть только один раз. каждый раз асинктаску нужно создавать заново
 
                 (new DeleteAllDatasAsync(getActivity())).execute();
@@ -122,6 +127,19 @@ public class OutputFragment extends Fragment {
             }
 
         });
+        show.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        fragment.setArguments(bundle);
+                                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                        //wtf
+                                        transaction.add(R.id.fragment, fragment);
+
+                                        transaction.addToBackStack(null);
+                                        transaction.commit();
+                                    }
+                                }
+        );
 //все листенеры интерфейсы. Мы не можем создать экземпляр интерфейса, поэтому используем анонимный класс
         save.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -84,7 +84,7 @@ public class InputFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-      //  View rootView = inflater.inflate(R.layout.fragment_input, container, false);
+        //  View rootView = inflater.inflate(R.layout.fragment_input, container, false);
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         //toolbar.setTitle("INPUT INFORMATION");
         TextView textView = getActivity().findViewById(R.id.toolbar_title);
@@ -106,7 +106,7 @@ public class InputFragment extends Fragment {
         NameOfAProject = view.findViewById(R.id.NameOfAProject);
         final Spinner columnSpinner = view.findViewById(R.id.spinner);
 
-        //  toolbar = getActivity().findViewById(R.id.toolbar);
+        //  ;
         //   toolbar.setTitle("INPUT INFORMATION");
 
 
@@ -190,6 +190,7 @@ public class InputFragment extends Fragment {
         naClConsumeRadio250 = view.findViewById(R.id.radioButton250);
         //connect button from class to button in xml
         calculateButton = view.findViewById(R.id.buttonCalc);
+
         //create listening by anonymous class
 
         calculateButton.setOnClickListener(new View.OnClickListener() {
