@@ -47,7 +47,7 @@ public class OutputFragment extends Fragment {
     }
 
     private Bundle bundle = new Bundle();
-    OutputFragment fragment = new OutputFragment();
+    OutputFragment fragment;
 
 
     @Override
