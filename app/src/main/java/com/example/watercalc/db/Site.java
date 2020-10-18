@@ -60,12 +60,11 @@ public class Site {
 
     @Override
     public String toString() {
-        return "Site{" +
-                "id=" + id +
-                ", nameOfArea='" + nameOfArea + '\'' +
-                ", inputInfo='" + inputInfo + '\'' +
-                ", equipment='" + equipment + '\'' +
-                ", outputInfo='" + outputInfo + '\'' +
+        return "Site {" +
+                "Number of site, = " + nameOfArea + '\'' +
+                ", Input Information = " + inputInfo + '\'' +
+                ", Required equipment = " + equipment + '\'' +
+                ", output Information = " + outputInfo + '\'' +
                 '}';
     }
 }

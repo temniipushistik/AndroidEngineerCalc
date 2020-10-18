@@ -21,6 +21,9 @@ import com.example.watercalc.db.Site;
 import com.example.watercalc.db.apis.GetAllDatasAsync;
 import com.example.watercalc.db.apis.WriteDataAsync;
 
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 public class DbFragment extends Fragment {
 
     TextView DatabaseText;
@@ -28,7 +31,6 @@ public class DbFragment extends Fragment {
 
     public DbFragment() {
         // Required empty public constructor
-
 
     }
 
@@ -59,27 +61,27 @@ public class DbFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_input, container, false);
+        return inflater.inflate(R.layout.fragment_db, container, false);
 
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Site site = new Site();
+
+
        DatabaseText = view.findViewById(R.id.databaseInfo);
-
-
+       DatabaseText.setText("");
         try {
-            //write info to database
-            (new WriteDataAsync(getActivity())).execute(site);
-
-            Toast.makeText(getActivity(),
-                    //get info from database
-                    (new GetAllDatasAsync(getActivity())).execute().get().toString(),
-                    Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
+          List<Site> db = new GetAllDatasAsync(getActivity()).execute().get();
+          for(int i=0;i<db.size();i++){
+              DatabaseText.setText(DatabaseText.getText()+db.get(i).toString()+"\n\n");
+          }
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
 
         super.onViewCreated(view, savedInstanceState);
     }

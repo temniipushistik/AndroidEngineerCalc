@@ -38,16 +38,10 @@ public class OutputFragment extends Fragment {
     private TextView no3Out, pa202Volume, tc007Volume, columnOut, naClConsumeOut, salt, tc007perL, pa202perL, breakStoneOut, workFlowOut, capacityOut, outputText;
     // final Handler handler = new Handler();
 
-    public static DbFragment newInstance() {
-        DbFragment fragment = new DbFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
 
-    }
 
     private Bundle bundle = new Bundle();
-    OutputFragment fragment;
+    DbFragment fragment = new DbFragment();
 
 
     @Override
@@ -184,7 +178,7 @@ public class OutputFragment extends Fragment {
         outInfo = "gap of NO3 - " + calculator.gap() + "" + "flow - " + calculator.flow() + "capacity - " + calculator.capacity();
 
 
-        outputText.setText(inputAnalyze + "\n" + equipment);
+        outputText.setText( inputAnalyze + "\n" + equipment);
 
 
         super.onViewCreated(view, savedInstanceState);
