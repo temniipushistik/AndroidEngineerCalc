@@ -34,10 +34,9 @@ public class OutputFragment extends Fragment {
 
     double no3, so4, hardness, column, breakStone, square;
     String sizeOfColumn, nameOfSite, inputAnalyze, equipment, outInfo;
-    Button save, delete, show;
+    Button save, show;
     private TextView no3Out, pa202Volume, tc007Volume, columnOut, naClConsumeOut, salt, tc007perL, pa202perL, breakStoneOut, workFlowOut, capacityOut, outputText;
     // final Handler handler = new Handler();
-
 
 
     private Bundle bundle = new Bundle();
@@ -104,23 +103,11 @@ public class OutputFragment extends Fragment {
         capacityOut = view.findViewById(R.id.capacity);
         outputText = view.findViewById(R.id.outinfo);
         save = view.findViewById(R.id.save);
-        delete = view.findViewById(R.id.delete);
+
         show = view.findViewById(R.id.buttonShowDataBase);
 
 
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //getActivity()) - аргумент для конструктора
-                //через конструктор создаем асинктаску, которая выполняет действие (execute - указание выполнить)
-                //у асинктаска можно вы полнть только один раз. каждый раз асинктаску нужно создавать заново
 
-                (new DeleteAllDatasAsync(getActivity())).execute();
-
-
-            }
-
-        });
         show.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -147,10 +134,12 @@ public class OutputFragment extends Fragment {
                     //write info to database
                     (new WriteDataAsync(getActivity())).execute(site);
 
-                    Toast.makeText(getActivity(),
+                   /* Toast.makeText(getActivity(),
                             //get info from database
                             (new GetAllDatasAsync(getActivity())).execute().get().toString(),
                             Toast.LENGTH_LONG).show();
+
+                    */
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -173,12 +162,12 @@ public class OutputFragment extends Fragment {
         capacityOut.setText(String.format("%.1f", calculator.capacity()));
 
 
-        inputAnalyze = "NO3 - " + no3 + " mg/l, " + "SO4 - " + so4 + " mg/l, " + "Hardness - " + hardness + " mg-eq/l";
+        inputAnalyze = "NO3 - " + no3 + " mg/l, " + "SO4 - " + so4 + " mg/l, " + "Hardness - " +  hardness + " mg-eq/l";
         equipment = " Size of column - " + sizeOfColumn + ", Consume of salt - " + String.valueOf(naClConsume) + "g/l";
-        outInfo = "gap of NO3 - " + calculator.gap() + "" + "flow - " + calculator.flow() + "capacity - " + calculator.capacity();
+        outInfo = "Gap of NO3 - " + String.format("%.1f", calculator.gap()) + "mg, " + "flow - " + calculator.flow()+"m3/h, " + "capacity - " + String.format("%.1f", calculator.capacity())+"mg-eq ";
 
 
-        outputText.setText( inputAnalyze + "\n" + equipment);
+        outputText.setText(inputAnalyze + "\n" + equipment);
 
 
         super.onViewCreated(view, savedInstanceState);

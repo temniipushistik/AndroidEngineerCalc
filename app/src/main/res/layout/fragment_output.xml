@@ -305,21 +305,7 @@
 
     </Button>
 
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="72dp"
 
-        android:background="#1E88E5"
-        android:padding="10dp"
-        android:text="Clear Database"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outinfo"></Button>
 
     <Button
         android:id="@+id/buttonShowDataBase"
@@ -328,10 +314,12 @@
         android:background="#1E88E5"
         android:textColor="@android:color/white"
         android:text="Show database"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/delete" />
+        app:layout_constraintTop_toBottomOf="@+id/save" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

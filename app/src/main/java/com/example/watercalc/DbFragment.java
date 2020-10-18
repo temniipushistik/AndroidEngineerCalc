@@ -18,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.example.watercalc.db.Site;
+import com.example.watercalc.db.apis.DeleteAllDatasAsync;
 import com.example.watercalc.db.apis.GetAllDatasAsync;
 import com.example.watercalc.db.apis.WriteDataAsync;
 
@@ -27,6 +28,8 @@ import java.util.concurrent.ExecutionException;
 public class DbFragment extends Fragment {
 
     TextView DatabaseText;
+    Button delete;
+
 
 
     public DbFragment() {
@@ -67,6 +70,22 @@ public class DbFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        delete = view.findViewById(R.id.delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //getActivity()) - аргумент для конструктора
+                //через конструктор создаем асинктаску, которая выполняет действие (execute - указание выполнить)
+                //у асинктаска можно вы полнть только один раз. каждый раз асинктаску нужно создавать заново
+
+                (new DeleteAllDatasAsync(getActivity())).execute();
+                DatabaseText.setText("");
+
+
+            }
+
+        });
 
 
        DatabaseText = view.findViewById(R.id.databaseInfo);
